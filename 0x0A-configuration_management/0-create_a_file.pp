@@ -1,6 +1,6 @@
 # Init of the Puppet
 
-file { '/tmp':
+file { '/tmp/school':
   path    => '/tmp/school'
   owner   => 'www-data',
   group   => 'www-data',
