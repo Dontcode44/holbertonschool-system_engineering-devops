@@ -1,6 +1,7 @@
 # Pkill
 exec {'killmenow':
 command  => 'pkill -f killmenow',
-provider => 'exec',
+provider => shell,
+onlyif => '/usr/bin/ -e /usr/bin',
 }
 
