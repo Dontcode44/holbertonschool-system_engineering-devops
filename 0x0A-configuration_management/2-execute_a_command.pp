@@ -1,6 +1,6 @@
 # Pkill
 exec {'killmenow':
-command  => 'pkill',
+command  => 'pkill -f killmenow',
 provider => exec
 }
 
