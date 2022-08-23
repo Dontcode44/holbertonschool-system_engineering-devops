@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Displays lines containing "bash"
-ps axuf | grep "bash"
