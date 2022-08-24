@@ -6,9 +6,10 @@ sudo apt -y install nginx
 echo "Hello World" > /var/www/html/index.html
 server {
     listen 80;
-    listen [::]:80 default_server;
+    listen [::]:80;
     root   /etc/nginx/html;
     index  index.html index.htm;
+
     location /redirect_me {
         return 301 https://www.google.com/
     }
