@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me
+
+sudo apt -y update
+sudo apt -y install nginx
+echo "Hello World" > /var/www/html/index.html
+server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
+    location /redirect_me {
+        return 301 https://www.google.com/
+    }
+} > /etc/nginx/sities-avaible/default
+
+service nginx restart
