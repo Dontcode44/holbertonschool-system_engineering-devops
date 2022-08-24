@@ -5,13 +5,13 @@ sudo apt -y update
 sudo apt -y install nginx
 echo "Hello World" > /var/www/html/index.html
 server {
-    listen 80;
-    listen [::]:80;
-    root   /etc/nginx/html;
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root   /var/www/html;
     index  index.html index.htm;
 
     location /redirect_me {
-        return 301 https://www.google.com/;
+        return 301 https://www.youtube.com/watch?v=cXR_nUy-YhY/;
     }
 } > /etc/nginx/sities-avaible/default
 
