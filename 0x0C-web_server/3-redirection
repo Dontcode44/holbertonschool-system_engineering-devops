@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Configure your Nginx server so that /redirect_me
 
-sudo apt -y update
-sudo apt -y install nginx
-echo "Hello World" > /var/www/html/index.html
-new_string="root /var/www/html;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=cXR_nUy-YhY permanent;"
-sed -i "s/root /var/www/html;/$new_string/" /etc/nginx/sities-avaible/default
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=cXR_nUy-YhY permanent;"
+sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=cXR_nUy-YhY permanent;/" /etc/nginx/sites-available/default
 
-service nginx restart
+sudo service nginx restart
