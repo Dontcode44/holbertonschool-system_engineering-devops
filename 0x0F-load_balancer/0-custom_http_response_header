@@ -8,6 +8,6 @@ new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/
 sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 sed -i "/listen 80 default_server;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /var/www/html ;\ninternal;\n}" /etc/nginx/sites-available/default
-sed -i "s/server_name ;/ server_name _;/ a add_header X-Served-By $HOSTNAME;/" /etc/nginx/sites-available/default
+sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 
 service nginx restart
