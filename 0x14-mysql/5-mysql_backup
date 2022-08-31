@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Script to create Back up on Mysql
 
-mysqldump -u root -p"$1" --all-databases --opt  > backup.sql
-tar -cvzf "$(date +"%d-%m-%Y")".tar.gz backup.sql
+mysqldump -uroot -p"$1" --all-databases --single-transaction --quick --lock-tables=false > backup.sql
+tar -cvzf "$(date +%d-%m-%Y)".tar.gz backup.sql
