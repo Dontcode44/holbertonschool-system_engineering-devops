@@ -11,7 +11,7 @@ if __name__ == "__main__":
     emp_id = int(sys.argv[1])
 
     users = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                      .format(emp_id)).json()
+                         .format(emp_id)).json()
 
     u_all = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
                          .format(emp_id)).json()
