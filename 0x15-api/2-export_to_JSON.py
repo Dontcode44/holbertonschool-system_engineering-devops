@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Using the rest API"""
 
+import json
 import requests
 import sys
-import json
 
 if __name__ == "__main__":
     """
