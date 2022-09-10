@@ -18,7 +18,7 @@ if __name__ == "__main__":
                          .format(emp_id)).json()
 
     with open("{}.csv".format(emp_id), 'w') as fi_csv:
-        f_ile = fi_csv.writer(fi_csv, delimiter=',', quoting=csv.QUOTE_ALL)
+        f_ile = csv.writer(fi_csv, delimiter=',', quoting=csv.QUOTE_ALL)
         for task in u_all:
             f_ile.writerow([emp_id, users.get('username'),
                             task.get('completed'), task.get('title')])
