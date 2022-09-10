@@ -12,11 +12,11 @@ if __name__ == "__main__":
     emp_id = int(sys.argv[1])
     al_l = {}
 
-    users = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                         .format(emp_id)).json()
+    users = requests.get("https://jsonplaceholder.typicode.com/users{}"
+                        ).json()
 
-    u_all = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
-                         .format(emp_id)).json()
+    u_all = requests.get("https://jsonplaceholder.typicode.com/todos{}"
+                        ).json()
 
     for user in users:
         taskList = []
