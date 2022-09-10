@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """Using the rest API"""
 
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     """
