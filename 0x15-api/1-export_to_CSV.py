@@ -12,11 +12,11 @@ if __name__ == "__main__":
     emp_id = int(sys.argv[1])
     file_csv = sys.argv[1] + '.csv'
 
-    users = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                         .format(emp_id)).json()
+    users = requests.get("https://jsonplaceholder.typicode.com/users"
+                         ).json()
 
-    u_all = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
-                         .format(emp_id)).json()
+    u_all = requests.get("https://jsonplaceholder.typicode.com/todos"
+                         ).json()
 
     with open(file_csv, mode='w') as csv_file:
         the_file = csv.writer(csv_file, delimiter=',', quotechar='"',
