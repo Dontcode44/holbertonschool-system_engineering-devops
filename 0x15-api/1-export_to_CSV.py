@@ -21,4 +21,4 @@ if __name__ == "__main__":
         f_ile = csv.writer(fi_csv, delimiter=',', quoting=csv.QUOTE_ALL)
         for task in u_all:
             f_ile.writerow([emp_id, users.get('username'),
-                            task.get('completed'), task.get('title')])
+                           task.get('completed'), task.get('title')])
