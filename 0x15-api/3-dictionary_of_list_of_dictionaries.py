@@ -9,24 +9,22 @@ if __name__ == "__main__":
     """
     Write a Python script that, using this REST API
     """
-    emp_id = int(sys.argv[1])
-    al_l = {}
-
-    users = requests.get("https://jsonplaceholder.typicode.com/users{}"
-                        ).json()
-
-    u_all = requests.get("https://jsonplaceholder.typicode.com/todos{}"
-                        ).json()
-
+    users = requests.get("https://jsonplaceholder.typicode.com/users",
+                         verify=False).json()
+    todo = requests.get("https://jsonplaceholder.typicode.com/todos",
+                        verify=False).json()
+    u_dict = {}
+    user_dict = {}
     for user in users:
-        taskList = []
-        for task in u_all:
-            if task.get('userId') == user.get('id'):
-                taskDict = {"username": user.get('username'),
-                            "task": task.get('title'),
-                            "completed": task.get('completed')}
-                taskList.append(taskDict)
-        al_l[user.get('id')] = taskList
-
-    with open('todo_all_employees.json', mode='w') as f:
-        json.dump(al_l, f)
+        ID = user.get("id")
+        u_dict[ID] = []
+        user_dict[ID] = user.get('username')
+    for task in todo:
+        task_dict = {}
+        ID = task.get("userId")
+        task_dict["task"] = task.get('title')
+        task_dict["completed"] = task.get('completed')
+        task_dict['username'] = user_dict.get(ID)
+        u_dict.get(ID).append(task_dict)
+    with open("todo_all_employees.json", 'w') as jsfile:
+        json.dump(u_dict, jsfile)
